@@ -56,7 +56,7 @@ const postQuote = e => {
     "author": e.target[1].value
   }
   
-  config = {
+  let config = {
     "method":"POST",
     "header": {
       "Content-Type":"application/json",

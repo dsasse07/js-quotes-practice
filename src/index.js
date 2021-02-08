@@ -51,24 +51,36 @@ fetchAllQuotes()
 const postQuote = e => {
   e.preventDefault()
 
-  let formData = {
-    "quote": e.target[0].value,
-    "author": e.target[1].value
-  }
-  
+    let formData = {
+      "quote": e.target[0].value,
+      "author": e.target[1].value
+    }
+
+  // let formData = {
+  //   "quote": e.target[0].value,
+  //   "author": e.target[1].value
+  // }
+
+    // let config = {
+    //   method:"POST",
+    //   headers: {
+    //     'Content-Type': "application/json",
+    //   },
+    //   "body": JSON.stringify(formData)
+    // }
   let config = {
-    "method":"POST",
-    "header": {
-      "Content-Type":"application/json",
+    method:"POST",
+    headers: {
+      "Content-Type":"application/json"
     },
-    "body": JSON.stringify(formData)
+    body: JSON.stringify(formData)
   }
   console.log(config)
   fetch(quotesUrl, config)
   .then( r => r.json() )
   .then( quote => {console.log(quote)})
 
-  e.target.reset()
+  // e.target.reset()
 }
 
 newForm.addEventListener('submit', postQuote)
